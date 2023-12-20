@@ -383,6 +383,11 @@ export interface ApiMoodEntryMoodEntry extends Schema.CollectionType {
         min: 1;
         max: 10;
       }>;
+    user_id: Attribute.Relation<
+      'api::mood-entry.mood-entry',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -626,7 +631,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -654,6 +658,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.user',
       'manyToOne',
       'plugin::users-permissions.role'
+    >;
+    idMood: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::mood-entry.mood-entry'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

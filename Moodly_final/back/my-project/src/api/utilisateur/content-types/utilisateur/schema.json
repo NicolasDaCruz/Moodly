@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "utilisateurs",
+  "info": {
+    "singularName": "utilisateur",
+    "pluralName": "utilisateurs",
+    "displayName": "Utilisateur",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "iduser": {
+      "type": "uid"
+    },
+    "Username": {
+      "type": "string",
+      "required": true,
+      "minLength": 1,
+      "unique": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true,
+      "unique": true,
+      "minLength": 1
+    },
+    "Password": {
+      "type": "password",
+      "required": true,
+      "private": true,
+      "minLength": 1
+    },
+    "id_role": {
+      "type": "uid",
+      "default": "1",
+      "required": true,
+      "minLength": 1
+    },
+    "role_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::permission-user.permission-user",
+      "inversedBy": "idrolee"
+    }
+  }
+}

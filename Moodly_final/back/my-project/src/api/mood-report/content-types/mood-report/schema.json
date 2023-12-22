@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mood_reports",
+  "info": {
+    "singularName": "mood-report",
+    "pluralName": "mood-reports",
+    "displayName": "MoodReport"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reportID": {
+      "type": "uid",
+      "required": true,
+      "minLength": 1
+    },
+    "MoodData": {
+      "type": "json",
+      "required": true
+    },
+    "Date_range": {
+      "required": true,
+      "min": 1,
+      "default": 1,
+      "max": 30,
+      "type": "integer"
+    }
+  }
+}
